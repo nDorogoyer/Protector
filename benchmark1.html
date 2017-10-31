@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Protector</title>
+
+	<!-- Include JQuery for easy JSON loading -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<!-- Include phaser game engine script  -->
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+
+	<!-- Include spritesheet image dummy object to be used by spriteImporter to read image dimensions -->
+	<img id="spritesheet"></img>
+
+	<!-- Include external game scripts -->
+	<script type="text/javascript" src="js/ui.js"></script>
+	<script type="text/javascript" src="js/spriteImporter.js"></script>
+	<script type="text/javascript" src="js/map_controller.js"></script>
+	<script type="text/javascript" src="js/zaun.js"></script>
+	<script type="text/javascript" src="js/hunter.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+	<link rel="icon" href="../../favicon.ico">
+
+	<!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	
+	<!-- Custom stylesheet -->
+	<link href="assets/dist/css/stylesheet.css" rel="stylesheet">
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAnZiADhlHzBTQzxbgdSOOyMPFEA2XhqH0",
+    authDomain: "protector-game.firebaseapp.com",
+    databaseURL: "https://protector-game.firebaseio.com",
+    projectId: "protector-game",
+    storageBucket: "protector-game.appspot.com",
+    messagingSenderId: "107416001136"
+  };
+  firebase.initializeApp(config);
+</script>
+<body>
+
+	<!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://protector-game.firebaseapp.com/index.html">Protector</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="https://protector-game.firebaseapp.com/benchmark1.html">benchmark1</a></li>
+            <li><a href="https://protector-game.firebaseapp.com/benchmark2.html">benchmark2</a></li>
+			<li><a href="https://protector-game.firebaseapp.com/benchmark3.html">benchmark3</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	<style>
+		img {
+		display: block;
+		margin: auto;
+		}
+	</style>
+	<div id = "container centered-text">
+		<img src = "assets/logo.png" width=96 height=96>
+		<h2 align = center> Protector<br> Game Design Document</h2>
+		<h4 align = center> by Tristen Terracciano, Dan Gomm, and Noam Dorogoyer</h4>
+
+		<h3 align = center> INTRODUCTION </h3>
+		<p align = center> This document describes a 2D top-down game called “Protector”. The game will employ sprite-based animation, tiled backgrounds, collision detection, physics, AI, pathing, efficient memory management, and other 2D game techniques.</p> 
+		<h3 align = center> TECHNOLOGY </h3>
+			<p align = center>Protector will be created to run on the Windows PC platform as an online game. To create the game, we’ll be using the Javascript programming language, which will run in all modern browsers. Additionally, the game will run on an open-source Javascript game engine, Phaser. This game will require top-down maps to be created, which will be done using the Tiled tilemap creation software. Finally, for the 2D sprite art, an online web app, Piskel, will be employed.</p>
+		<h3 align = center> BACK STORY </h3>
+			<p align = center>In a a apocalyptic world, our main characters, [Zaun - temp name] falls victim to a Zombie attacks, dies, and comes back as a Zombie. Since Zaun is theoretically dead, he has a ghost. The role of the ghost is to watch over and protect his zombie body. </p>
+		<h3 align = center> OBJECTIVE </h3>
+			<p align = center>The aim is to stop the mindless Zaun Zombie from getting hurt, harming others, and obtain the antidote.</p>
+		<h3 align = center> GAMEPLAY </h3>
+			<p align = center>The game will load an initial map (larger than the viewport). This map will be made of tiles and will contain various threats that the zombie needs to avoid. In order to protect and guide his zombie body, the ghost has the ability to construct roads, walls, and bridges. The zombie will follow any infrastructure, choose randomly between forks, and in the event that there is no infrastructure, will be overwhelmed by his zombie instincts and will attempt to attack someone. It will be the role of the ghost (player) to make sure that the Zombie doesn’t cause chaos. An additional caveat is that the ghost’s construction power will be limited by its energy generation.</p>
+		<h3 align = center> CONTROLS </h3>
+			<p align = center>The user will select an ability either via mouseclick on the toolbar or via a keybind. They will then select the tile they want the selected structure to appear on.</p>
+		<h3 align = center> GRAPHICAL USER INTERFACE </h3>
+			<p align = center>The menu will be relatively simple. It will contain a play screen, back story, and options button. The back story will replay the introduction to the game and explain the story, objective, and gameplay. The options button would offer the ability to customize keybinds. <br>
+		The game will have a toolbar on top with all the abilities. Near the toolbar, there will be a small bar with the current amount of energy. On the top right of the screen, there will be a minimap and a small options button (that would pause immediately and offer to quit or customize key bindings)</p>
+		<h3> EXAMPLE UI </h3>
+		<h4 align = center> Gameplay Screen </h4>
+		<img src = "assets/gameplay_screen.png">
+		<h4 align = center> Help/Back Story</h4> 
+		<img src = "assets/help_story.png">
+		<h4 align = center> Level Screen </h4>
+		<img src = "assets/levels.png">
+		<h4 align = center> Main Screen </h4>
+		<img src = "assets/main_screen.png">
+		<h4 align = center> Option Screen </h4>
+		<img src = "assets/options.png">
+		<h4 align = center> Splash Screen </h4>
+		<img src = "assets/splash_screen.png">
+		
+		<h3 align = center> ARTWORK </h3>
+			<p align = center>This game will feature 2D artwork in a top-down style. Since the maps will be tiled, a game tileset will need to be created. In addition, sprites will need to be drawn for the zombie (and all its animation states), and multiple types of enemies (and their animation states). The following sprites and animation states need to be created: <br>
+		<br>
+		Tileset:<br>
+			-Empty region tiles: Grass, Sand, Rocks, Water<br>
+			-Hunter camp region: Street, Buildings, Trucks, Fire pit<br>
+			-Village region: Houses, street<br>
+			<br>
+		Zaun:<br>
+			-Walking(up,down,left,right)<br>
+			-Dying<br>
+			-Taking Damage<br>
+			-Healed From Antidote<br>
+		<br>
+		Hunter (2 or 3 Different Sprites):<br>
+			-Walking(up,down,left,right)<br>
+			-Attacking<br>
+			-Reloading (gun)<br>
+			-Dying<br>
+			-Taking Damage<br>
+		<br>
+		Zombie (Zombies other than Zaun should look different so the user can easily tell):<br>
+			-Walking(up,down,left,right)<br>
+			-Attacking<br>
+			-Dying<br>
+			-Taking Damage<br>	</p>
+		<h3 align = center> SOUND EFFECTS/MUSIC</h3>
+		<p align = center>We’ll be using Bfxr to create sound effects for certain collisions and player interactions. Furthermore, we intend to make a simple soundtrack.</p>
+	</div>
+</body>
+</html>

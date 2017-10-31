@@ -1,0 +1,184 @@
+.navbar-default {
+  background-color: #46c7cc;
+  border-color: #28b4b9;
+}
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #6f5390;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #6f5390;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #46c7cc;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #6f5390;
+  background-color: #28b4b9;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #28b4b9;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #6f5390;
+  background-color: #28b4b9;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #6f5390;
+  background-color: #28b4b9;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #6f5390;
+  background-color: #28b4b9;
+}
+.navbar-default .navbar-toggle {
+  border-color: #28b4b9;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #28b4b9;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+  color: #6f5390;
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #6f5390;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #6f5390;
+    background-color: #28b4b9;
+  }
+}
+
+.centered-image{
+	text-align:center;
+	padding-top: 100px;
+	width: 50%;
+	margin: auto;
+}
+
+.centered-text{
+	text-align:center;
+}
+
+/*
+ Changing these colors will make the titles change.
+ */
+h1{
+	color: #46c7cc;
+	font-size: 55px;
+}
+h2{
+	color: #46c7cc;
+	font-size: 33px;
+}
+h3{
+	color: #46c7cc;
+}
+
+h4{
+	color: #46c7cc;
+}
+p{
+	color: #000000;
+	font-size: 16px;
+}
+
+.help-table{
+	background: #5C9818;
+	width: 500px; 
+	height: 300px; 
+	border: 15px solid teal;
+	position: absolute; 
+	margin-top: 250px; 
+	margin-left: 400px;
+}
+
+.tr
+{
+	border: 2px solid teal;
+}
+
+.td-info
+{
+	height: 90px;
+	text-align: center;
+}
+
+.th-info
+{
+	height: 90px;
+	text-align: center;
+}
+
+.th
+{
+	width: 150px; 
+	height: 54px;
+	text-align: center;
+}
+.options-table
+{
+	background: #5C9818;
+	width: 300px; 
+	border: 15px solid teal;
+	height: 300px;
+	position: absolute;
+	margin-top: 250px;
+	margin-left: 500px;
+}
+
+.info-table
+{
+	background: #5C9818;
+	width: 500px; 
+	border: 15px solid teal;
+	height: 300px; 
+	position: absolute; 
+	margin-top: 250px; 
+	margin-left: 60px;
+}
+
+
+body { 
+	padding-top: 40px;
+	background: #ffffff !important; 
+	font-family: "Segoe UI" !important;
+}

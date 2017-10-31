@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Protector</title>
+
+	<!-- Include JQuery for easy JSON loading -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<!-- Include phaser game engine script  -->
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+
+	<!-- Include spritesheet image dummy object to be used by spriteImporter to read image dimensions -->
+	<img id="spritesheet"></img>
+
+	<!-- Include external game scripts -->
+	<script type="text/javascript" src="js/ui.js"></script>
+	<script type="text/javascript" src="js/spriteImporter.js"></script>
+	<script type="text/javascript" src="js/map_controller.js"></script>
+	<script type="text/javascript" src="js/zaun.js"></script>
+	<script type="text/javascript" src="js/hunter.js"></script>
+
+	
+	<!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom stylesheet -->
+	<link href="assets/dist/css/stylesheet.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://protector-game.firebaseapp.com/index.html">Protector</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="https://protector-game.firebaseapp.com/benchmark1.html">benchmark1</a></li>
+            <li><a href="https://protector-game.firebaseapp.com/benchmark2.html">benchmark2</a></li>
+			<li><a href="https://protector-game.firebaseapp.com/benchmark3.html">benchmark3</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	<!-- Include main game script -->
+	<script type="text/javascript" src="js/protector.js"></script>
+
+	<!-- loading screen image -->
+	<img id="logo" style="position: absolute; margin-top:350px; margin-left: 615px;"></img>
+
+	<!-- help table code -->
+	<table id="HELP_TABLE" class = "help-table">
+		<tbody>
+			<tr class = "tr">
+				<th style="height: 90px;">
+					<font color="white">
+						Overview: You can protect your zombie by using your abilities to place roads and walls on the map. The abilities can 
+						be controlled by either using the in-game buttons in the top right of the screen, or by pressing the Q,W,E,R keys. The
+						key mappings for each ability can be changed in the Options Menu.
+					</font>
+				</th>
+			</tr>
+			<tr class = "tr">
+				<th style="height: 45px;">
+					<font color="white">
+						Road: Placing a road on the map will cause Zaun to move toward the location of the newly placed road.
+					</font>
+				</th>
+			</tr>
+			<tr class = "tr">
+				<th style="height: 90px;">
+					<font color="white">
+						Wall: Placing a wall on the map will block enemy attacks from hurting Zaun. Zaun won't be able to move through walls, so
+						be careful not to place them in front of an antidote!
+					</font>
+				</th>
+			</tr>
+		</tbody>
+	</table> 
+
+	<!-- help table code -->
+	<table id="INFO_TABLE" class = "info-table">
+		<tbody>
+			<tr class = "tr">
+				<th style="height: 90px;">
+					<font color="white">
+						Back Story: In an apocalyptic world, our main character, Zaun, falls victim to a zombie attack, dies, and comes back as 
+						a zombie. Since Zaun is dead, he has a ghost. The role of the ghost is to watch over and protect his zombie body.
+					</font>
+				</th>
+			</tr>
+			<tr class = "tr">
+				<th style="height: 90px;">
+					<font color="white">
+						Objective: The aim is to stop the mindless Zaun zombie from getting hurt, harming others, and obtain the antidote.
+					</font>
+				</th>
+			</tr>
+			<tr class = "tr">
+				<th style="height: 90px;">
+					<font color="white">
+						Gameplay: Guide your zombie body using your ghost abilities that construct roads, walls, and bridges. Build them on any tiles on the map while keeping track of your energy. Collect components of the antidote while avoiding threats and chaos.
+					</font>
+				</th>
+			</tr>
+		</tbody>
+	</table> 
+
+	<!-- options table code -->
+	<table  id="OPTIONS_TABLE" class = "options-table">
+		<tbody>
+			<tr class = "tr">
+				<th class = "th-options"><font color="white" weight = "bold">Ability</font></th>
+  				<th class = "th-options"><font color="white" weight = "bold">Key Bind</font></th>
+			</tr>
+			<tr class = "tr">
+				<td th style="width: 150px; height: 54px;" align="center">
+  					<font color="white">Road</font>
+  				</td>
+  				<td style="width: 150px; height: 54px;" align="center">
+					<select id="road_key">        
+            			<option selected value="q_key">Q</option>
+            			<option value="w_key">W</option>
+            			<option value="e_key">E</option>
+            			<option value="r_key">R</option>
+       				</select>
+				</td>
+			</tr>
+			<tr class = "tr">
+  				<td th style="width: 150px; height: 54px;" align="center">
+  					<font color="white">Wall</font>
+  				</td>
+  				<td style="width: 150px; height: 54px;" align="center">
+					<select id="wall_key">        
+            			<option value="q_key">Q</option>
+            			<option selected value="w_key">W</option>
+            			<option value="e_key">E</option>
+            			<option value="r_key">R</option>
+       				</select>
+				</td>
+			</tr>
+			<tr class = "tr">
+				<td th style="width: 150px; height: 54px;" align="center">
+  					<font color="white">Bridge</font>
+  				</td>
+  				<td style="width: 150px; height: 54px;" align="center">
+					<select id="bridge_key">        
+            			<option value="q_key">Q</option>
+            			<option value="w_key">W</option>
+            			<option selected value="e_key">E</option>
+            			<option value="r_key">R</option>
+       				</select>
+				</td>
+			</tr>
+			<tr class = "tr">
+				<td th style="width: 150px; height: 54px;" align="center">
+  					<font color="white">Ultimate</font>
+  				</td>
+  				<td style="width: 150px; height: 54px;" align="center">
+					<select id="ult_key">        
+            			<option value="q_key">Q</option>
+            			<option value="w_key">W</option>
+            			<option value="e_key">E</option>
+            			<option selected value="r_key">R</option>
+       				</select>
+				</td>
+			</tr>
+		</tbody>
+	</table> 
+</body>
+</html>
